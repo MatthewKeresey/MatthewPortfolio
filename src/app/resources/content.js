@@ -1,16 +1,16 @@
 import { Logo } from "@/once-ui/components";
 
 const person = {
-  firstName: "Selene",
-  lastName: "Yu",
+  firstName: "Matthew",
+  lastName: "Keresey",
   get name() {
     return `${this.firstName} ${this.lastName}`;
   },
-  role: "Design Engineer",
+  role: "Systems Engineer",
   avatar: "/images/avatar.jpg",
-  email: "example@gmail.com",
-  location: "Asia/Jakarta", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-  languages: ["English", "Bahasa"], // optional: Leave the array empty if you don't want to display languages
+  email: "Matthew@kereseyconnect.com",
+  location: "United States, East Coast", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
+  languages: [], // optional: Leave the array empty if you don't want to display languages
 };
 
 const newsletter = {
@@ -63,7 +63,7 @@ const home = {
   },
   subline: (
     <>
-      I'm Selene, a design engineer at <Logo icon={false} style={{ display: "inline-flex", top: "0.25em", marginLeft: "-0.25em" }}/>, where I craft intuitive
+      I'm Matthew, a design engineer at <Logo icon={false} style={{ display: "inline-flex", top: "0.25em", marginLeft: "-0.25em" }}/>, where I craft intuitive
       <br /> user experiences. After hours, I build my own projects.
     </>
   ),
@@ -90,8 +90,8 @@ const about = {
     title: "Introduction",
     description: (
       <>
-        Selene is a Jakarta-based design engineer with a passion for transforming complex challenges
-        into simple, elegant design solutions. Her work spans digital interfaces, interactive
+        Matthew is a design engineer with a passion for transforming complex challenges
+        into simple, elegant design solutions. His work spans digital interfaces, interactive
         experiences, and the convergence of design and technology.
       </>
     ),
@@ -101,17 +101,15 @@ const about = {
     title: "Work Experience",
     experiences: [
       {
-        company: "FLY",
-        timeframe: "2022 - Present",
-        role: "Senior Design Engineer",
+        company: "Dirigo Technology",
+        timeframe: "2024 - Present",
+        role: "Cyber Security Engineer",
         achievements: [
           <>
-            Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user
-            engagement and 30% faster load times.
+            Oversaw the implementation of a new security system, reducing the risk of data breaches. 
           </>,
           <>
-            Spearheaded the integration of AI tools into design workflows, enabling designers to
-            iterate 50% faster.
+            Spearheaded the integration of Automation tools to streamline security operations, System hardening, and compliance. 
           </>,
         ],
         images: [
@@ -125,17 +123,15 @@ const about = {
         ],
       },
       {
-        company: "Creativ3",
-        timeframe: "2018 - 2022",
-        role: "Lead Designer",
+        company: "Maine Health",
+        timeframe: "2023 - 2024",
+        role: "Desktop Support Technician",
         achievements: [
           <>
-            Developed a design system that unified the brand across multiple platforms, improving
-            design consistency by 40%.
+            Worked with the IT department to troubleshoot and resolve issues with desktop computers, printers, and other peripherals.
           </>,
           <>
-            Led a cross-functional team to launch a new product line, contributing to a 15% increase
-            in overall company revenue.
+            Worked in a cross functional team to troubleshoot and resolve issues with the company's network and systems and applications.
           </>,
         ],
         images: [],
@@ -144,25 +140,33 @@ const about = {
   },
   studies: {
     display: true, // set to false to hide this section
-    title: "Studies",
+    title: "Certifications",
     institutions: [
       {
-        name: "University of Jakarta",
-        description: <>Studied software engineering.</>,
+        name: "Microsoft Certified: Enterprise Administrator Expert",
+        description: <>Implementing and managing Microsoft Windows Server and Active Directory. Microsoft cloud services such as Microsoft XDR, Purview, and Azure.</>,
       },
       {
-        name: "Build the Future",
-        description: <>Studied online marketing and personal branding.</>,
+        name: "Azure Architecture and Design Expert",
+        description: <>Virtualizing and managing Microsoft Azure services. Azure Active Directory, Azure Security Center, Azure Sentinel, and Azure Monitor.</>,
+      },
+      {
+        name: "CISSP",
+        description: <>Due Diligence and Risk Management, Security and Risk Management, and Security Operations.</>,
+      },
+      {
+        name: "CCNA",
+        description: <>Cisco Certified Network Associate.</>,
       },
     ],
   },
   technical: {
     display: true, // set to false to hide this section
-    title: "Technical skills",
+    title: "Technical Experience",
     skills: [
       {
-        title: "Figma",
-        description: <>Able to prototype in Figma with Once UI with unnatural speed.</>,
+        title: "Automation",
+        description: <>N8N, Azure Logic Apps, Azure DevOps, and Powershell.</>,
         // optional: leave the array empty if you don't want to display images
         images: [
           {
@@ -180,8 +184,21 @@ const about = {
         ],
       },
       {
-        title: "Next.js",
-        description: <>Building next gen apps with Next.js + Once UI + Supabase.</>,
+        title: "Auditing and Monitoring",
+        description: <>Rapid 7, Microsoft XDR, and Microsoft Purview, and Microsoft Sentinel. Various EDR and SIEM tools.</>,
+        // optional: leave the array empty if you don't want to display images
+        images: [
+          {
+            src: "/images/projects/project-01/cover-04.jpg",
+            alt: "Project image",
+            width: 16,
+            height: 9,
+          },
+        ],
+      },
+      {
+        title: "Cloud Architecture and Design",
+        description: <>Azure Devops and Terraform. AWS and GCP experience. Pricing and cost management. Scope and design documents.</>,
         // optional: leave the array empty if you don't want to display images
         images: [
           {

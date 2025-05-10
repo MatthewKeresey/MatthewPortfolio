@@ -9,7 +9,7 @@ const person = {
   role: "Systems Engineer",
   avatar: "/images/avatar.jpg",
   email: "Matthew@kereseyconnect.com",
-  location: "United States, East Coast", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
+  location: "America/New_York", // IANA time zone identifier for US East Coast
   languages: [], // optional: Leave the array empty if you don't want to display languages
 };
 

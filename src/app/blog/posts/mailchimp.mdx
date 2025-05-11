@@ -1,108 +1,69 @@
 ---
-title: "Set up Mailchimp and collect emails"
-summary: "Set up the Mailchimp newsletter block for your Magic Portfolio."
+title: "Custom vs 'As a Service': When and Why"
+summary: "Understanding when to build from scratch and when to leverage SaaS platforms for speed, scalability, and focus."
 publishedAt: "2025-04-16"
 tag: "Magic Portfolio"
+image: "/images/gallery/img-saas.jpg"
 ---
 
-## Mailchimp account
+## The Dilemma
 
-Sign up for a [Mailchimp account](https://mailchimp.com) and create a new list if you don't have one.
+Every project reaches a fork in the road: **Should we build it ourselves, or use something off the shelf?** It's a classic trade-off in engineering—**customization vs convenience**, **control vs speed**.
 
-## Embed form
+I've faced this decision often, whether evaluating authentication systems, analytics dashboards, notification services, or even hosting infrastructure.
 
-Create a new [embed form](https://mailchimp.com/help/add-a-signup-form-to-your-website/) and copy the form URL to your Magic Portfolio config.
+---
 
-<CodeBlock
-    highlight="2"
-    codeInstances={[
-  {
-    code:
-`const mailchimp = {
-    action: 'https://url/subscribe/post?parameters',
-    effects: {
-      ...
-    }
-};`, 
-    language: "tsx",
-    label: "src/app/resources/config.js"
-  }
-]} />
+## 🔨 The Case for Custom Builds
 
-## Newsletter content
+Going custom gives you:
+- **Full control** over performance, security, and UX.
+- **No vendor lock-in**, so you’re free to pivot or scale however you need.
+- **Tailored features**, perfect for edge cases or internal tools.
 
-You can modify the headline and description in the `content.js` file.
+But it also means:
+- Longer development time
+- Higher maintenance overhead
+- Greater need for domain expertise
 
-<CodeBlock
-    highlight="2"
-    codeInstances={[
-  {
-    code:
-`const newsletter = {
-    display: true,
-    title: <>Subscribe to {person.firstName}'s Newsletter</>,
-    description: (
-      <>
-        I occasionally write about design, technology, and share thoughts on the intersection of creativity and engineering.
-      </>
-    ),
-};`, 
-    language: "tsx",
-    label: "src/app/resources/content.js"
-  }
-]} />
+I’ve chosen this route when working with sensitive data or when the solution was tightly bound to business logic (e.g., on-prem integrations or offline support).
 
-## Background effect
+---
 
-There's a pre-configured background in `Mailchimp.tsx` that you can modify in the `mailchimp` object. Set graphic elements such as gradient, dots, lines, and grid and configure their appearance for the newsletter block.
+##  The Case for SaaS & APIs
 
-<CodeBlock
-    codeHeight={24}
-    marginBottom="16"
-    codeInstances={[
-  {
-    code:
-`const mailchimp = {
-    action: 'https://url/subscribe/post?parameters',
-    effects: {
-      mask: {
-        cursor: false,
-        x: 50,
-        y: 0,
-        radius: 100
-      },
-      gradient: {
-        display: true,
-        x: 50,
-        y: -25,
-        width: 100,
-        height: 100,
-        tilt: 0,
-        colorStart: 'accent-background-strong',
-        colorEnd: 'static-transparent',
-        opacity: 50
-      },
-      dots: {
-        display: true,
-        size: 2,
-        color: 'brand-on-background-weak',
-        opacity: 20
-      },
-      lines: {
-        display: false,
-        color: 'neutral-alpha-weak',
-        opacity: 100
-      },
-      grid: {
-        display: false,
-        color: 'neutral-alpha-weak',
-        opacity: 100,
-        width: 'var(--static-space-32)',
-        height: 'var(--static-space-32)'
-      }
-  }
-}`, 
-    language: "tsx",
-    label: "src/app/resources/config.js"
-  }
-]} />
+Using a service like Firebase, Auth0, Stripe, or Supabase means:
+- **Rapid deployment**
+- **Automatic scaling**
+- **Reliable support and uptime**
+- Often, **built-in security/compliance** (like GDPR or SOC 2)
+
+This is ideal when:
+- Time-to-market is critical
+- The functionality isn’t your product’s core value
+- You need to prove a concept quickly
+
+In most MVPs and startup projects I’ve touched, SaaS tools saved months of engineering time.
+
+---
+
+##  My Decision Tree
+
+Here’s how I usually decide:
+
+- **Core to the business?** → Build it.
+- **Replaceable commodity?** → Buy it.
+- **Security or privacy sensitive?** → Often build, or choose self-hosted.
+- **Need to iterate fast?** → SaaS all the way.
+
+---
+
+## Closing Thoughts
+
+In the age of APIs and plug-and-play platforms, knowing *when not to build* is just as critical as knowing *how to build*. Tools like Supabase, Clerk, and Vercel let us focus energy on what makes our work unique.
+
+Still, there’s beauty and power in rolling your own—**as long as you know why.**
+
+---
+
+Would you like me to share a side-by-side build vs. buy comparison for a real project? Or break down how I migrated from Firebase to a custom Node backend?

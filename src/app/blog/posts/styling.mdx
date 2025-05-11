@@ -1,82 +1,63 @@
 ---
-title: "Styling your portfolio"
-summary: "Magic Portfolio's styling is based on Once UI's customization through data-attributes."
+title: "My Opinion on Cursor AI"
+summary: "Reflecting on my hands-on experience with Cursor AI—where it shines, where it struggles, and why I keep using it."
 publishedAt: "2025-04-21"
 tag: "Magic Portfolio"
+image: "/images/gallery/img-cursor-ai.jpg"
 ---
 
-## Global style
+## What Is Cursor AI?
 
-Magic Portfolio's styling is based on Once UI's customization through data-attributes. You can generate a custom color palette for brand, accent and neutral colors on [Once UI](https://once-ui.com/customize) where you'll find instructions on how to apply it.
+Cursor AI is a next-gen coding assistant built into an IDE-like experience. Think Copilot meets VS Code, with a focus on **pair programming, refactoring, and AI-assisted file navigation**. I’ve been using it on and off for a few months, and here’s what I think.
 
-<CodeBlock
-    marginBottom="16"
-    codeInstances={[
-  {
-    code:
-`theme:       'dark',         // dark | light
-neutral:     'gray',         // sand | gray | slate
-brand:       'blue',         // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
-accent:      'indigo',       // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
-solid:       'contrast',     // color | contrast
-solidStyle:  'flat',         // flat | plastic
-border:      'playful',      // rounded | playful | conservative
-surface:     'translucent',  // filled | translucent
-transition:  'all',          // all | micro | macro
-scaling:     '100',          // 90 | 95 | 100 | 105 | 110`, 
-    language: "tsx",
-    label: "src/app/resources/config.js"
-  }
-]} />
+---
 
-## Background effect
+## Where It Shines 
 
-There's a pre-configured background in `layout.tsx` that you can modify in the config file. Set graphic elements such as gradient, dots, lines, and grid and configure their appearance.
+###  Contextual Awareness
 
-<CodeBlock
-    codeHeight={24}
-    marginBottom="16"
-    codeInstances={[
-  {
-    code:
-`const effects = {
-    mask: {
-      cursor: false,
-      x: 50,
-      y: 0,
-      radius: 100
-    },
-    gradient: {
-      display: true,
-      x: 50,
-      y: -25,
-      width: 100,
-      height: 100,
-      tilt: 0,
-      colorStart: 'accent-background-strong',
-      colorEnd: 'static-transparent',
-      opacity: 50
-    },
-    dots: {
-      display: true,
-      size: 2,
-      color: 'brand-on-background-weak',
-      opacity: 20
-    },
-    lines: {
-      display: false,
-      color: 'neutral-alpha-weak',
-      opacity: 100
-    },
-    grid: {
-      display: false,
-      color: 'neutral-alpha-weak',
-      opacity: 100,
-      width: 'var(--static-space-32)',
-      height: 'var(--static-space-32)'
-    }
-}`, 
-    language: "tsx",
-    label: "src/app/resources/config.js"
-  }
-]} />
+Cursor doesn’t just complete code like Copilot—it **understands your project**. I can ask it:
+> “Refactor this function to use async/await”  
+> “Where is this component used?”  
+> “Summarize what this file does”
+
+The results are often surprisingly accurate, even in larger projects.
+
+### 🔧 Codebase Navigation and Modification
+
+One standout feature is **multi-file awareness**. I can highlight a block and say “extract this into a hook,” and it actually creates the new file and inserts the import in the original. That kind of fluid editing feels like the future.
+
+###  Inline Q&A
+
+Its ability to answer questions about libraries, dependencies, or explain TypeScript errors in-line is a huge time-saver. It’s more like talking to a senior engineer than using Stack Overflow.
+
+---
+
+## Where It Falls Short 
+
+- **Heavy compute lag** at times, especially in large projects with many files.
+- It occasionally **hallucinates changes**—e.g., suggesting files that don’t exist or ignoring existing exports.
+- The **pricing model** may not fit solo developers or students compared to Copilot.
+
+And while the chat-like interface is great for some tasks, it can feel like overkill for simple completions or boilerplate.
+
+---
+
+## How I Use It
+
+- Refactoring older code into hooks or components
+- Writing documentation inline (it helps format and explain really well)
+- Automating repetitive updates across files
+- Experimenting with architectural changes in branches before I commit anything
+
+---
+
+## Final Thoughts
+
+Cursor AI is one of the most promising tools I’ve used recently. It’s not flawless—but its potential is clear. It takes the idea of AI pair programming and **anchors it inside your real workflow**, rather than just inside a textbox.
+
+If you’re building anything serious in JavaScript, TypeScript, or React—it’s worth a trial run.
+
+---
+
+Would you like me to compare Cursor AI to GitHub Copilot or Codeium in a future post?

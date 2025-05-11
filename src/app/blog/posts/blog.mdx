@@ -1,71 +1,42 @@
 ---
-title: "Create, edit and delete blog posts"
-summary: "Create, edit and delete posts in the blog section of your Magic Portfolio."
+title: "Sharpening my skills with LeetCode"
+summary: "Creating habits and solving challenges with LeetCode to stay sharp in systems engineering and software development."
 publishedAt: "2025-03-17"
 tag: "Magic Portfolio"
+image: "/images/gallery/img-leetcode.jpg"
 ---
 
-## Manage posts
+## Why LeetCode?
 
-You can create, edit and delete posts by adding, modifying or removing `*.mdx` files in the `src/app/blog/posts` directory.
+As a systems engineer working closely with infrastructure, automation, and full-stack tools, I find it essential to keep my problem-solving muscles strong. LeetCode offers a focused way to do this, whether it’s revisiting data structures, practicing dynamic programming, or writing optimized solutions under constraints.
 
-## Frontmatter
+## What I'm Focusing On
 
-The frontmatter is used to set the post's metadata: title, description, image, and tags. It's used in the post's page and in meta- and open graph tags.
+I’ve been working on a structured schedule that targets:
+- **Daily problem solving** (at least one per day).
+- **Pattern recognition**, like sliding windows, prefix sums, and backtracking.
+- **Performance tuning**, writing clean, readable, and efficient code in Python and JavaScript.
 
-<CodeBlock
-    marginBottom="16"
-    codeInstances={[
-      {
-        code:
-`---
-title: "Arriving to a new milestone in my career"
-publishedAt: "2024-04-08"
-image: "/images/gallery/img-02.jpg"
-summary: "Every career is a journey, filled with challenges, growth, and those significant moments that mark a shift in our path."
-tag: "Journal"
----`,
-        language: "tsx",
-        label: "src/app/blog/posts/post-1.mdx"
-      }
-    ]}
-/>
+## Recent Wins
 
-## MDX syntax
+Some recent challenges I've particularly enjoyed:
+- Solved a binary tree recursion problem using a bottom-up DFS approach.
+- Optimized a sliding window problem down from O(n²) to O(n).
+- Used prefix sum arrays to reduce nested loops in subarray range problems.
 
-You can use MDX to write the content of your posts. It helps you write rich and dynamic content with minimal code. Some MDX elements will be automatically transformed to Once UI components to integrate better in the design and add additional functionality.
+These have helped me reinforce fundamentals while gaining new tricks.
 
-## Custom components
+## Looking Ahead
 
-You can use custom components in MDX files, but you need to import them first in the `src/components/mdx.tsx` file.
+Next, I’m focusing on:
+- **System design problems** to complement my coding knowledge.
+- Practicing **mock interview simulations**.
+- Sharing walkthroughs for selected LeetCode solutions on my portfolio.
 
-<CodeBlock
-    marginBottom="16"
-    highlight="11-12"
-    codeInstances={[
-      {
-        code:
-`const components = {
-    p: createParagraph as any,
-    h1: createHeading(1) as any,
-    h2: createHeading(2) as any,
-    h3: createHeading(3) as any,
-    h4: createHeading(4) as any,
-    h5: createHeading(5) as any,
-    h6: createHeading(6) as any,
-    img: createImage as any,
-    a: CustomLink as any,
-    Table,
-    CodeBlock,
-};`,
-        language: "tsx",
-        label: "src/components/mdx.tsx"
-      }
-    ]}
-/>
+## Closing Thoughts
 
-As you can see, the `Table` and `CodeBlock` components are already imported and available for use. You can add more by simply importing them to this file and passing them to the `components` object.
+Whether you're interviewing, freelancing, or deep into architecture, LeetCode is a solid gym for your technical thinking. For me, it’s a way to keep pace with the evolving landscape of AI and engineering.
 
-## Hot reload
+---
 
-Hot reload of MDX files is currently not supported, but we're working on it.
+Would you like help creating a featured image for this post or adding a code snippet demo?

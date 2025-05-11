@@ -1,46 +1,58 @@
 ---
-title: "Quick start with Magic Portfolio"
-summary: "Magic Portfolio is a comprehensive, MDX-based, SEO-friendly, responsive portfolio template built with Once UI and Next.js."
+title: "What I've Learned About SEO"
+summary: "Building Magic Portfolio taught me how subtle SEO tweaks can dramatically affect discoverability and performance."
 image: "/images/og/home.jpg"
 publishedAt: "2025-04-23"
 tag: "Magic Portfolio"
 ---
 
-## About
+## Building for Visibility
 
-Magic Portfolio is a comprehensive, MDX-based, SEO-friendly, responsive portfolio template built with Once UI and Next.js.
+When I started building my portfolio with Magic Portfolio, I was mostly focused on performance, design, and clean code. But over time, I realized: **great design doesn’t matter if no one can find it**.
 
-## License
+That's where SEO came in—not as an afterthought, but as an intentional part of the build.
 
-Magic Portfolio is licensed under the [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/). You can only use it for personal purposes, and you must attribute the original work. The attribution is added in the footer by default, but you can place it in any other, visible part of your site.
+---
 
-Subscribe to the [Once UI Pro plan](https://once-ui.com/pricing) to extend the license to [Dopler CC](https://once-ui.com/products/magic-portfolio).
+## Key Lessons I’ve Learned
 
-## Quick start
+###  Metadata Matters
+Setting a unique `title`, `description`, and `image` for every page (via frontmatter or Next.js metadata APIs) makes a huge difference—not only for search engines, but for link previews and accessibility.
 
-Clone the git repository:
+###  Mobile-First is SEO-First
+Google heavily prioritizes **mobile performance and responsiveness**. Magic Portfolio’s layout system and image optimization with `SmartImage` helped me pass Core Web Vitals consistently.
 
-<CodeBlock compact marginBottom="16" codeInstances={[
-  {
-    code: "git clone https://github.com/once-ui-system/magic-portfolio.git",
-    language: "bash"
-  }
-]} />
+###  Semantic HTML Still Wins
+Using proper heading levels (`<h1>` to `<h6>`), meaningful alt text, and `<nav>`/`<article>`/`<main>` landmarks has improved both my Lighthouse scores and my discoverability.
 
-Install the necessary dependencies:
+---
 
-<CodeBlock compact marginBottom="16" codeInstances={[
-  {
-    code: "npm install",
-    language: "bash"
-  }
-]} />
+## Technical SEO Enhancements
 
-Start the local development server:
+Here’s what I implemented under the hood:
 
-<CodeBlock compact marginBottom="16" codeInstances={[
-  {
-    code: "npm run dev",
-    language: "bash"
-  }
-]} />
+- **Open Graph tags** for social media previews.
+- **Canonical URLs** to avoid duplicate content penalties.
+- **Sitemap generation** for indexing clarity.
+- **Robots.txt** to guide crawlers.
+- **Dynamic OG image generation** per post (powered by Vercel).
+
+---
+
+## SEO is Ongoing
+
+The biggest lesson? **SEO isn’t one and done.** It’s an evolving process:
+
+- I check Google Search Console regularly.
+- I test changes with Lighthouse and SEMrush.
+- I keep performance high with lightweight scripts and compressed images.
+
+---
+
+## Final Thoughts
+
+SEO is part art, part science. And as a developer, I now treat it like any other part of my stack—**testable, measurable, and essential**.
+
+---
+
+Would you like to see a checklist of all SEO optimizations I applied to Magic Portfolio? Or a comparison of how my pages ranked before and after? Let me know.

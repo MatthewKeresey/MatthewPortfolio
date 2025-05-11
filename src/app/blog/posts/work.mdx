@@ -1,78 +1,95 @@
 ---
-title: "Create,edit and delete projects"
-summary: "Create, edit and delete projects in the work section of your Magic Portfolio."
+title: "Recent Experiences with N8N"
+summary: "Building forms, automating cloud workflows, and comparing N8N with Azure Logic Apps for low-code orchestration."
 publishedAt: "2025-04-19"
 tag: "Magic Portfolio"
+image: "/images/gallery/img-n8n-vs-logicapps.jpg"
 ---
 
-## Manage projects
+## My Use Case: Forms That Power Automation
 
-You can create, edit and delete projects by adding, modifying or removing `*.mdx` files in the `src/app/work/projects` directory.
+A client wanted to collect submissions from a public-facing form and automate a backend workflow. The steps were:
 
-## Frontmatter
+- Form data submission (name, email, topic, message)
+- Validation and spam filtering
+- Triggering conditional notifications via Microsoft Teams and email
+- Logging entries to a SharePoint list or database
 
-The frontmatter is used to set the project's metadata: title, description, image, and tags. It's used in the project's page and in meta- and open graph tags.
+This needed to be:
+- **Cloud-based**
+- **Secure**
+- **Easy to iterate on**
 
-<CodeBlock
-    marginBottom="16"
-    codeInstances={[
-      {
-        code:
-`---
-title: "Developing a design system for indie creators"
-publishedAt: "2025-03-17"
-summary: "Once UI is a design system that empowers indie creators, small teams, and startups to build web applications."
-images:
-  - "/images/projects/project-01/cover-02.jpg"
-  - "/images/projects/project-01/image-03.jpg"
-team:
-  - name: "Lorant One"
-    role: "Software Engineer"
-    avatar: "/images/avatar.jpg"
-    linkedIn: "https://www.linkedin.com/company/once-ui/"
-link: "https://once-ui.com/"
----`,
-        language: "tsx",
-        label: "src/app/work/projects/project-1.mdx"
-      }
-    ]}
-/>
+I implemented this in both **N8N (Cloud)** and **Azure Logic Apps**—here’s how each performed.
 
-## MDX syntax
+---
 
-You can use MDX to write the content of your projects. It helps you write rich and dynamic content with minimal code. Some MDX elements will be automatically transformed to Once UI components to integrate better in the design and add additional functionality.
+## ☁️ N8N (Cloud) Setup
 
-## Custom components
+N8N Cloud offers a hosted version with instant setup, no server provisioning, and support for OAuth, Webhooks, and API integrations out of the box.
 
-You can use custom components in MDX files, but you need to import them first in the `src/components/mdx.tsx` file.
+### 🔧 How I Used It:
+- A webhook node received the form data (sent via Fetch from a frontend form)
+- JavaScript function nodes filtered bad input and enriched the data
+- Notifications were sent to Teams via an HTTP node
+- I used a Notion integration to log submissions for review
 
-<CodeBlock
-    marginBottom="16"
-    highlight="11-12"
-    codeInstances={[
-      {
-        code:
-`const components = {
-    p: createParagraph as any,
-    h1: createHeading(1) as any,
-    h2: createHeading(2) as any,
-    h3: createHeading(3) as any,
-    h4: createHeading(4) as any,
-    h5: createHeading(5) as any,
-    h6: createHeading(6) as any,
-    img: createImage as any,
-    a: CustomLink as any,
-    Table,
-    CodeBlock,
-};`,
-        language: "tsx",
-        label: "src/components/mdx.tsx"
-      }
-    ]}
-/>
+### ✅ Pros:
+- Visual interface is fast and developer-friendly
+- Custom JS logic between nodes allows real flexibility
+- Built-in form validation with Function nodes
+- Built-in error handling and retry options
 
-As you can see, the `Table` and `CodeBlock` components are already imported and available for use. You can add more by simply importing them to this file and passing them to the `components` object.
+### ❌ Cons:
+- No native support for Microsoft services (must use HTTP/API)
+- Limited role-based access in the cloud version
+- Less granular monitoring/logging compared to Azure
 
-## Hot reload
+---
 
-Hot reload of MDX files is currently not supported, but we're working on it.
+## 🧩 Azure Logic Apps Version
+
+Logic Apps is Azure’s low-code orchestration platform, tightly integrated with the Microsoft ecosystem.
+
+### 🔧 How I Used It:
+- Form data posted to an HTTP trigger in Logic Apps
+- Azure Content Moderator and conditional expressions filtered content
+- Microsoft Graph API sent alerts to Teams
+- Data logged to SharePoint using built-in connectors
+
+### ✅ Pros:
+- Seamless integration with SharePoint, Outlook, Teams, Azure AD
+- Built-in connectors and templates for enterprise apps
+- Better monitoring through Azure Monitor and Log Analytics
+- Security features like managed identity and IP restrictions
+
+### ❌ Cons:
+- Less intuitive interface for developers
+- Harder to debug JavaScript-heavy workflows
+- Slightly slower to iterate on in dev/testing environments
+
+---
+
+## 🔄 Side-by-Side Comparison
+
+| Feature                          | **N8N (Cloud)**                         | **Azure Logic Apps**                     |
+|----------------------------------|------------------------------------------|-------------------------------------------|
+| Setup Time                       | Fast – ready in minutes                  | Slower – needs resource planning          |
+| Form Webhook Handling            | Built-in via HTTP node                   | Built-in HTTP trigger                     |
+| Microsoft 365 Integration        | Manual (via APIs)                        | Native support via connectors             |
+| Scripting Power                  | Full JavaScript in Function nodes        | Limited – needs Azure Functions for depth |
+| Monitoring & Logging             | Basic UI logging                         | Advanced via Azure Monitor                |
+| Ideal Use Case                   | Developer-led automation & startups      | Enterprise workflows & compliance-heavy apps |
+
+---
+
+## My Take
+
+- **Use N8N Cloud** if you're working with APIs, want flexible logic, and need to ship fast. Perfect for startups, indie projects, and modular workflows.
+- **Use Azure Logic Apps** if you're deeply tied to the Microsoft stack and want robust governance, native M365 support, and compliance tooling.
+
+I’ve found value in using **both**, depending on the project.
+
+---
+
+Let me know if you want a downloadable N8N workflow export or a step-by-step Logic App template for this use case.

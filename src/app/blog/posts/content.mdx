@@ -1,117 +1,59 @@
 ---
-title: "Updating the content of Magic Portfolio"
-summary: "Personalize the portfolio template with your own content."
+title: "Azure vs AWS for modern projects"
+summary: "A personal take on choosing between Azure and AWS for cloud-native development, automation, and scale."
 publishedAt: "2025-04-18"
 tag: "Magic Portfolio"
+image: "/images/gallery/img-cloud.jpg"
 ---
 
-## Avatar
+## Choosing the Right Cloud
 
-Replace the `public/images/avatar.jpg` file with your own avatar image. It is used on the `/about` page as well as on the dynamically generated `open-graph` images.
+In a modern development or DevOps workflow, cloud infrastructure is no longer optional—it's the backbone. The question for many professionals and teams is: **Azure or AWS?** I’ve worked with both across infrastructure-as-code, automation pipelines, virtual networks, and SaaS integrations. Here’s how they stack up for the kind of projects I work on.
 
-## Favicon
+---
 
-Replace the `src/app/favicon.ico` file with your own favicon.
+##  Azure: Seamless Integration with Microsoft Ecosystem
 
-## Content
+Azure shines when you're working in or around the Microsoft stack:
+- **Active Directory, Entra ID, Office 365** — deeply embedded and manageable via Azure Portal or CLI.
+- **Infrastructure as Code** with Bicep or ARM templates (though Terraform is also fully supported).
+- **DevOps pipelines** via Azure DevOps, with powerful release automation and granular permissioning.
 
-Replace the content in the `resources/content.js` file with your own content. You can use custom components in most cases, since the props are usually declared as `ReactNode` instead of `string`, but it's important that you need to import them in the file.
+Azure also makes identity and access management feel unified. If you're building internal tools for businesses already on Microsoft 365, this is often the right choice.
 
-<CodeBlock
-    marginBottom="16"
-    highlight="1-2"
-    codeInstances={[
-  {
-    code:
-`import { InlineCode } from "@/once-ui/components";
-import Link from "next/link";
+---
 
-const person = {
-  ...
-};`,
-    language: "tsx",
-    label: "src/app/resources/content.js"
-  }
-]} />
+##  AWS: The Original Cloud Giant
 
-The imports above would let us use `InlineCode` and `Link` components in the content file.
+AWS is unmatched in flexibility, service breadth, and global presence. I use AWS when:
+- Speed and **scale** are paramount.
+- I need **fine-tuned control over VPCs, IAM roles**, and edge distribution.
+- Building highly modular applications using **Lambda**, **S3**, **CloudFront**, and **DynamoDB**.
 
-### Personal details
+Its pricing model is more granular, which can be both a blessing and a burden. And while the UI and UX can be dense, once you’ve mastered the CLI and IAM policies, it’s incredibly powerful.
 
-Your personal details are used across the whole app to render personalized headings, labels and images. Languages are displayed on the `/about` page, and location and time in the header.
+---
 
-<CodeBlock
-    marginBottom="16"
-    highlight="2-3,7-10"
-    codeInstances={[
-  {
-    code:
-`const person = {
-    firstName: "Selene",
-    lastName: "Yu",
-    get name() {
-      return "...";
-    },
-    role: "Design Engineer",
-    avatar: "/images/avatar.jpg",
-    location: "Asia/Jakarta", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-    languages: ["English", "Bahasa"], // optional: Leave the array empty if you don't want to display languages
-};`,
-    language: "tsx",
-    label: "src/app/resources/content.js"
-  }
-]} />
+##  TL;DR Comparison
 
-### Social links
+| Feature                  | **Azure**                            | **AWS**                                |
+|--------------------------|--------------------------------------|----------------------------------------|
+| Best For                 | Enterprise integration, .NET apps    | Scalability, startups, global reach    |
+| DevOps Tools             | Azure DevOps, GitHub Actions         | CodePipeline, CodeDeploy               |
+| Identity Management      | Entra ID (formerly AAD)              | IAM, Cognito                           |
+| IAC Language             | Bicep, ARM, Terraform                | CloudFormation, Terraform              |
+| Ease of Use              | Better UI, tighter integrations      | More flexible, steeper learning curve  |
+| Pricing                  | Simpler for Microsoft users          | Very granular (can be complex)         |
 
-Social links are rendered on the `/about` page and in the footer based on the array configured in the `social` object. You can set custom icons to each, but don't forget to import them in `src/once-ui/icons.ts`. Read the Once UI documentation](https://once-ui.com/docs/icons) for more information.
+---
 
-<CodeBlock
-    marginBottom="16"
-    codeInstances={[
-  {
-    code:
-`const social = [
-    {
-      name: "GitHub",
-      icon: "github",
-      link: "https://github.com/once-ui-system/nextjs-starter",
-    },
-    {
-      name: "Email",
-      icon: "email",
-      link: "mailto:lorant@once-ui.com",
-    },
-];`,
-    language: "tsx",
-    label: "src/app/resources/content.js"
-  }
-]} />
+##  My Take
 
-### Pages
+- I use **Azure** when building tools that live in the Microsoft ecosystem (e.g., Microsoft 365 automation, AVD management).
+- I use **AWS** when I need **raw flexibility**, third-party integrations, or massive scalability.
 
-Each page have it's own object that manages the personalized content, such as headings, subheadings, images and dynamic data.
+The right tool depends on your goals—but knowing both gives me the agility to move between enterprise and startup needs seamlessly.
 
-<CodeBlock
-    marginBottom="16"
-    codeInstances={[
-  {
-    code:
-`const home = {
-    label: "Home",
-    title: "Selene Yu's Portfolio",
-    description: "Portfolio website showcasing my work as a Design Engineer",
-    headline: <>Design engineer and builder</>,
-    subline: (
-      <>
-        I'm Selene, a design engineer at <InlineCode>FLY</InlineCode>, where I craft intuitive
-        <br /> user experiences. After hours, I build my own projects.
-      </>
-    ),
-};`,
-    language: "tsx",
-    label: "src/app/resources/content.js"
-  }
-]} />
+---
 
-The `label` property is used in the header navigation. The `title` property is used for the page title and the `description` property is used for the page description. They are also used in meta- and open graph tags.
+Let me know if you'd like to see a blog post next comparing **Azure Bicep vs Terraform**, or **setting up hybrid cloud infrastructure**.

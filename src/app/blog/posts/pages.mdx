@@ -1,55 +1,73 @@
 ---
-title: "Enable or disable pages for your portfolio"
-summary: "Magic Portfolio's RouteGuard component takes care of conditionally rendering pages based on your settings."
+title: "Cloudflare for Your Own API Gateway"
+summary: "How I use Cloudflare’s edge services to protect, accelerate, and simplify my API infrastructure."
 publishedAt: "2025-04-22"
 tag: "Magic Portfolio"
+image: "/images/gallery/img-cloudflare.jpg"
 ---
 
-## Enable or disable pages
+## Why Use Cloudflare as an API Gateway?
 
-Magic Portfolio's `RouteGuard` component takes care of conditionally rendering pages based on the `routes` object in the `resources/config.js` file.
+Cloudflare is widely known for CDN and DDoS protection, but it has grown into a powerful **edge-layer platform** capable of acting as your **API gateway**—no expensive tooling or vendor lock-in required.
 
-<CodeBlock
-    marginBottom="16"
-    highlight="6"
-    codeInstances={[
-  {
-    code:
-`const routes = {
-    '/':        true,
-    '/about':   true,
-    '/work':    true,
-    '/blog':    true,
-    '/gallery': false,
-};`,
-    language: "tsx",
-    label: "src/app/resources/config.js"
-  }
-]} />
+I use it to:
+- Protect internal and public APIs
+- Implement zero-trust policies
+- Cache dynamic responses
+- Create rate limits and firewall rules at the edge
 
-The code above will ensure that the `/gallery` page is not accessible and is not displayed in the navigation.
+---
 
-## Add new pages
+## Benefits Over Traditional API Gateways
 
-When creating a new page, it needs to be added to the `routes` object in the `resources/config.js` file.
+### 🌍 Global Edge Network  
+APIs routed through Cloudflare benefit from their global network, reducing latency and ensuring fast response times regardless of user location.
 
-<CodeBlock
-    marginBottom="16"
-    highlight="6"
-    codeInstances={[
-  {
-    code:
-`const routes = {
-    '/':        true,
-    '/about':   true,
-    '/work':    true,
-    '/blog':    true,
-    '/gallery': false,
-    '/music': true,
-};`,
-    language: "tsx",
-    label: "src/app/resources/config.js"
-  }
-]} />
+### 🔐 Security by Default  
+- **Bot protection**
+- **Geo-blocking**
+- **mTLS and WAF rules**
+- **IP filtering**
 
-The code above will ensure that the `/music` page is accessible. Users will be able to navigate to it after adding it to the navigation menu in the `components/Header.tsx` file.
+All without managing a complex infrastructure stack.
+
+### ⚙️ Developer-Friendly Workflows  
+Cloudflare Workers and Pages allow me to:
+- Deploy JavaScript logic at the edge
+- Rewrite or route requests conditionally
+- Serve fallback data even when the origin is down
+
+---
+
+## How I Use It
+
+I’ve set up a Cloudflare zone to manage all traffic to `api.mydomain.com`. My config looks like this:
+
+-  **Page Rules**: Forward `/v1/*` to internal services
+-  **Cache Rules**: Cache certain read-heavy endpoints like `/public/articles`
+-  **Workers**: Sanitize inputs and add rate limiting before it hits my backend
+-  **Access Control**: Token validation using `cf-access` headers
+
+---
+
+## Sample Use Case
+
+Here’s a simple Worker to proxy and cache an external API:
+
+```js
+addEventListener("fetch", event => {
+  event.respondWith(handleRequest(event.request))
+})
+
+async function handleRequest(request) {
+  const url = new URL(request.url)
+  const target = `https://thirdpartyapi.com${url.pathname}`
+  
+  const response = await fetch(target, {
+    headers: { Authorization: `Bearer ${API_KEY}` }
+  })
+
+  return new Response(await response.text(), {
+    headers: { "Cache-Control": "s-maxage=3600" }
+  })
+}

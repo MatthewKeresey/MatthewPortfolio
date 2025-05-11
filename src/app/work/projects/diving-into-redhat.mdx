@@ -1,0 +1,85 @@
+---
+title: "Getting Back Into Red Hat"
+publishedAt: "2024-04-01"
+summary: "A practical comparison of Red Hat, Ubuntu, and Windows through the lens of development, automation, and infrastructure."
+images:
+  - "/images/projects/project-01/cover-01.jpg"
+  - "/images/projects/project-01/image-03.jpg"
+team:
+  - name: "Natthew"
+    role: "Systems Engineer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/matthew-keresey-67288b290/"
+link: "https://once-ui.com/"
+---
+
+## Why Red Hat Again?
+
+After years of working in environments dominated by **Ubuntu** and **Windows**, I recently found myself getting back into **Red Hat Enterprise Linux (RHEL)**—and it felt like rediscovering an old, battle-tested toolbelt with a more enterprise edge.
+
+This post compares my experience working across the three operating systems as a developer and systems engineer, especially in projects focused on automation, CI/CD, and design system pipelines.
+
+---
+
+##  Development Workflow Comparison
+
+| Feature                         | **Red Hat (RHEL/CentOS)**       | **Ubuntu (Debian-based)**        | **Windows 11**                    |
+|----------------------------------|----------------------------------|----------------------------------|-----------------------------------|
+| Package Manager                 | `dnf` (previously `yum`)         | `apt`                             | Winget / Chocolatey (3rd party)   |
+| Systemd & Services              | Yes                              | Yes                              | No native systemd, uses SCM       |
+| Dev Tools Availability          | Enterprise-grade, slower updates | Bleeding-edge, broader community | VS Code & WSL fill gaps           |
+| SELinux & Security              | SELinux (enforced)               | AppArmor (lighter)               | Antivirus-centric, Group Policy   |
+| Kernel Customization            | High, especially for VMs         | High                              | Low unless using Hyper-V/WSL      |
+| Container Tooling               | Podman + Docker compatible       | Docker native                    | Docker Desktop (via WSL)          |
+
+---
+
+##  Real Project Reflections
+
+### Red Hat for Infrastructure-Heavy Projects
+
+Red Hat shines in **enterprise automation** and **security-sensitive deployments**. When building CI pipelines for design handoff tools or provisioning servers for internal design systems:
+- SELinux + systemd = predictable, locked-down services
+- Podman (Docker alternative) = containerized build workflows with fewer attack vectors
+- GitHub Actions runners can be deployed and managed with **Ansible** or **Red Hat Satellite**
+
+Ideal for regulated environments or when paired with tools like OpenShift.
+
+### Ubuntu for Developer Agility
+
+For fast-moving development—especially when prototyping tools like:
+- Figma-to-React pipelines
+- JS build systems
+- SSGs (Next.js, Astro, etc.)
+
+Ubuntu is unbeatable. You'll get faster package updates, broader community support, and plug-and-play compatibility with tools like Node, pnpm, and Firebase CLI. It's my go-to for:
+- Startup MVPs
+- Cloud server automation (especially on DigitalOcean or GCP)
+- Headless CMS deployments
+
+### Windows for Design + Dev Hybrid Workflows
+
+Windows, particularly with **Windows Subsystem for Linux (WSL2)**, is surprisingly powerful for front-end and DevOps hybrid workflows. In projects involving Figma, Adobe XD, and browser testing:
+- VS Code + WSL = smooth terminal dev inside Windows UI
+- Powershell + GitHub CLI = flexible automation
+- Great if your stack includes Microsoft 365, OneDrive, or Teams integrations
+
+But it still falls short in performance for pure back-end Linux-native tooling (e.g., systemd sockets, Linux ACLs).
+
+---
+
+##  Key Takeaways
+
+- **Red Hat**: Use it when reliability, traceability, and hardened systems matter most. It's not about speed—it's about **stability at scale**.
+- **Ubuntu**: Great for developers who need to move quickly, customize heavily, and live on the bleeding edge.
+- **Windows**: Ideal for hybrid roles (design/PM/dev), but still best paired with WSL2 or cloud-hosted dev containers.
+
+---
+
+## Final Thought
+
+Getting back into Red Hat reminded me of how much tooling and thinking is shaped by your OS. It also made me appreciate how much **Red Hat, Ubuntu, and Windows can co-exist**, especially in today's containerized, multi-cloud world.
+
+---
+
+Want a shell script comparison cheat sheet between `dnf`, `apt`, and `winget`? Let me know—I'll publish one in the next post.

@@ -2,7 +2,7 @@
 title: "Powershell, Python or Javascript?"
 summary: "Comparing three powerful scripting languages through the lens of automation, productivity, and real-world use cases."
 publishedAt: "2025-04-20"
-tag: "Magic Portfolio"
+tag: ["Powershell", "Python", "JavaScript", "Scripting", "Automation", "Productivity", "IT", "Comparison"]
 image: "/images/gallery/img-scripting.jpg"
 ---
 
@@ -19,58 +19,55 @@ I reach for PowerShell when dealing with:
 - Microsoft 365 and Azure CLI integrations
 - Provisioning machines or modifying registries
 
-It’s deeply integrated with the Windows ecosystem and supports object piping, which makes it elegant for tasks like:
+It's deeply integrated with the Windows ecosystem and supports object piping, which makes it elegant for tasks like:
 
 ```powershell
 Get-Process | Where-Object { $_.CPU -gt 100 }
+```
+
 But it's less portable across platforms compared to the other two.
 
-Python: The Versatile Workhorse
+## Python: The Versatile Workhorse
 Python shines when I need:
 
-Cross-platform scripting
+- Cross-platform scripting
+- Data parsing and analysis
+- HTTP APIs and automation bots
+- File and system operations that go beyond Windows
 
-Data parsing and analysis
+It's my go-to for scalable scripts and quick dashboards. I've used it to write cleanup tools, backup systems, and even integrations with external APIs like CoinGecko or ConnectWise.
 
-HTTP APIs and automation bots
-
-File and system operations that go beyond Windows
-
-It’s my go-to for scalable scripts and quick dashboards. I’ve used it to write cleanup tools, backup systems, and even integrations with external APIs like CoinGecko or ConnectWise.
-
-python
-Copy
-Edit
+```python
 import requests
 
 res = requests.get("https://api.github.com")
 print(res.json())
-Python’s readability and package ecosystem are hard to beat.
+```
 
-JavaScript: When the Browser Isn’t the Limit
+Python's readability and package ecosystem are hard to beat.
+
+## JavaScript: When the Browser Isn't the Limit
 JavaScript isn't just for the web. With Node.js, it becomes a solid backend scripting tool. I use it when:
 
-Working with JSON-heavy APIs
+- Working with JSON-heavy APIs
+- Building internal tools or dashboards
+- Deploying scripts to environments like Vercel or Netlify
 
-Building internal tools or dashboards
-
-Deploying scripts to environments like Vercel or Netlify
-
-js
-Copy
-Edit
+```js
 const fetch = require('node-fetch');
 
 fetch('https://api.example.com/data')
   .then(res => res.json())
   .then(data => console.log(data));
-While less suited for system-level scripting, it’s unbeatable for full-stack consistency.
+```
+
+While less suited for system-level scripting, it's unbeatable for full-stack consistency.
 
 My Verdict (For Now)
 PowerShell: For Windows-specific automation and infrastructure tasks.
 
 Python: For cross-platform scripting, automation, APIs, and everything in between.
 
-JavaScript: When I’m building web-connected tools or need tight frontend/backend alignment.
+JavaScript: When I'm building web-connected tools or need tight frontend/backend alignment.
 
 Rather than picking a favorite, I choose based on context. Each language has earned a spot in my daily workflow.

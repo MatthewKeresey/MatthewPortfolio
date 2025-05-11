@@ -1,8 +1,8 @@
 ---
 title: "Cloudflare for Your Own API Gateway"
-summary: "How I use Cloudflare’s edge services to protect, accelerate, and simplify my API infrastructure."
+summary: "How I use Cloudflare's edge services to protect, accelerate, and simplify my API infrastructure."
 publishedAt: "2025-04-22"
-tag: "Magic Portfolio"
+tag: ["Cloudflare", "API Gateway", "Edge", "Security", "CDN", "JavaScript", "Infrastructure", "Networking", "Best Practices"]
 image: "/images/gallery/img-cloudflare.jpg"
 ---
 
@@ -20,10 +20,10 @@ I use it to:
 
 ## Benefits Over Traditional API Gateways
 
-### 🌍 Global Edge Network  
+###  Global Edge Network  
 APIs routed through Cloudflare benefit from their global network, reducing latency and ensuring fast response times regardless of user location.
 
-### 🔐 Security by Default  
+###  Security by Default  
 - **Bot protection**
 - **Geo-blocking**
 - **mTLS and WAF rules**
@@ -31,7 +31,7 @@ APIs routed through Cloudflare benefit from their global network, reducing laten
 
 All without managing a complex infrastructure stack.
 
-### ⚙️ Developer-Friendly Workflows  
+###  Developer-Friendly Workflows  
 Cloudflare Workers and Pages allow me to:
 - Deploy JavaScript logic at the edge
 - Rewrite or route requests conditionally
@@ -41,7 +41,7 @@ Cloudflare Workers and Pages allow me to:
 
 ## How I Use It
 
-I’ve set up a Cloudflare zone to manage all traffic to `api.mydomain.com`. My config looks like this:
+I've set up a Cloudflare zone to manage all traffic to `api.mydomain.com`. My config looks like this:
 
 -  **Page Rules**: Forward `/v1/*` to internal services
 -  **Cache Rules**: Cache certain read-heavy endpoints like `/public/articles`
@@ -52,7 +52,7 @@ I’ve set up a Cloudflare zone to manage all traffic to `api.mydomain.com`. My 
 
 ## Sample Use Case
 
-Here’s a simple Worker to proxy and cache an external API:
+Here's a simple Worker to proxy and cache an external API:
 
 ```js
 addEventListener("fetch", event => {

@@ -2,7 +2,7 @@
 title: "Recent Experiences with N8N"
 summary: "Building forms, automating cloud workflows, and comparing N8N with Azure Logic Apps for low-code orchestration."
 publishedAt: "2025-04-19"
-tag: "Magic Portfolio"
+tag: ["n8n", "Azure Logic Apps", "Automation", "Low-Code", "Cloud", "Microsoft", "Workflow", "Integration", "Comparison", "Productivity"]
 image: "/images/gallery/img-n8n-vs-logicapps.jpg"
 ---
 
@@ -20,57 +20,57 @@ This needed to be:
 - **Secure**
 - **Easy to iterate on**
 
-I implemented this in both **N8N (Cloud)** and **Azure Logic Apps**—here’s how each performed.
+I implemented this in both **N8N (Cloud)** and **Azure Logic Apps**—here's how each performed.
 
 ---
 
-## ☁️ N8N (Cloud) Setup
+##  N8N (Cloud) Setup
 
 N8N Cloud offers a hosted version with instant setup, no server provisioning, and support for OAuth, Webhooks, and API integrations out of the box.
 
-### 🔧 How I Used It:
+###  How I Used It:
 - A webhook node received the form data (sent via Fetch from a frontend form)
 - JavaScript function nodes filtered bad input and enriched the data
 - Notifications were sent to Teams via an HTTP node
 - I used a Notion integration to log submissions for review
 
-### ✅ Pros:
+###  Pros:
 - Visual interface is fast and developer-friendly
 - Custom JS logic between nodes allows real flexibility
 - Built-in form validation with Function nodes
 - Built-in error handling and retry options
 
-### ❌ Cons:
+###  Cons:
 - No native support for Microsoft services (must use HTTP/API)
 - Limited role-based access in the cloud version
 - Less granular monitoring/logging compared to Azure
 
 ---
 
-## 🧩 Azure Logic Apps Version
+##  Azure Logic Apps Version
 
-Logic Apps is Azure’s low-code orchestration platform, tightly integrated with the Microsoft ecosystem.
+Logic Apps is Azure's low-code orchestration platform, tightly integrated with the Microsoft ecosystem.
 
-### 🔧 How I Used It:
+###  How I Used It:
 - Form data posted to an HTTP trigger in Logic Apps
 - Azure Content Moderator and conditional expressions filtered content
 - Microsoft Graph API sent alerts to Teams
 - Data logged to SharePoint using built-in connectors
 
-### ✅ Pros:
+###  Pros:
 - Seamless integration with SharePoint, Outlook, Teams, Azure AD
 - Built-in connectors and templates for enterprise apps
 - Better monitoring through Azure Monitor and Log Analytics
 - Security features like managed identity and IP restrictions
 
-### ❌ Cons:
+###  Cons:
 - Less intuitive interface for developers
 - Harder to debug JavaScript-heavy workflows
 - Slightly slower to iterate on in dev/testing environments
 
 ---
 
-## 🔄 Side-by-Side Comparison
+##  Side-by-Side Comparison
 
 | Feature                          | **N8N (Cloud)**                         | **Azure Logic Apps**                     |
 |----------------------------------|------------------------------------------|-------------------------------------------|
@@ -88,7 +88,7 @@ Logic Apps is Azure’s low-code orchestration platform, tightly integrated with
 - **Use N8N Cloud** if you're working with APIs, want flexible logic, and need to ship fast. Perfect for startups, indie projects, and modular workflows.
 - **Use Azure Logic Apps** if you're deeply tied to the Microsoft stack and want robust governance, native M365 support, and compliance tooling.
 
-I’ve found value in using **both**, depending on the project.
+I've found value in using **both**, depending on the project.
 
 ---
 

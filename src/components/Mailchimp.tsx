@@ -10,7 +10,7 @@ export const Mailchimp = () => {
         onClick={() => window.open('https://us20.list-manage.com/contact-form?u=cb398a49b20c7906f23664856&form_id=4a9cb3ab8f2b184fda684edce5d8227c', '_blank', 'noopener,noreferrer')}
         style={{ background: '#22223b', color: '#fff', borderRadius: '0.5rem', padding: '0.75rem 1.5rem', fontWeight: 600, border: 'none', marginTop: '0.5rem', cursor: 'pointer', fontSize: '1rem', transition: 'background 0.2s', width: '100%' }}
       >
-        Go to Subscription Form
+        Send Matt a message
       </button>
     </div>
   );

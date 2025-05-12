@@ -83,16 +83,20 @@ const about = {
   },
   calendar: {
     display: true,
-    link: "https://cal.com",
+    link: "https://cal.com/matthewkeresey",
   },
   intro: {
     display: true,
     title: "Introduction",
     description: (
       <>
-        Matthew is a design engineer with a passion for transforming complex challenges
-        into simple, elegant design solutions. His work spans digital interfaces, interactive
-        experiences, and the convergence of design and technology.
+        Matthew is a Systems Engineer with a passion for cybersecurity and cloud architecture. 
+        With expertise in Azure, automation, and enterprise security solutions, he specializes in 
+        building robust, scalable systems that protect and empower businesses. His work combines 
+        technical depth with practical problem-solving, whether implementing security frameworks, 
+        designing cloud infrastructure, or developing automation pipelines. When not architecting 
+        secure systems, he's exploring new technologies and sharing insights on the evolving 
+        landscape of enterprise IT and cybersecurity.
       </>
     ),
   },

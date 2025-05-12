@@ -20,50 +20,61 @@ type NewsletterProps = {
 };
 
 export const Mailchimp = () => {
+  const [email, setEmail] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState("");
+
+  const validateEmail = (email: string) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    if (!validateEmail(email)) {
+      setError("Please enter a valid email address.");
+      e.preventDefault();
+      return;
+    }
+    setError("");
+    setSubmitted(true);
+    // Let the form submit to Mailchimp
+  };
+
   return (
-    <div id="mc_embed_shell">
-      <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css" />
-      <style>{`
-        #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width: 100%; max-width: 600px; margin: 0 auto;}
-      `}</style>
-      <div id="mc_embed_signup">
-        <form action="https://matthewkeresey.us20.list-manage.com/subscribe/post?u=cb398a49b20c7906f23664856&amp;id=b696a921fc&amp;f_id=009b5eeef0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate" target="_blank">
-          <div id="mc_embed_signup_scroll">
-            <h2>Subscribe</h2>
-            <div className="indicates-required"><span className="asterisk">*</span> indicates required</div>
-            <div className="mc-field-group">
-              <label htmlFor="mce-EMAIL">Email Address <span className="asterisk">*</span></label>
-              <input type="email" name="EMAIL" className="required email" id="mce-EMAIL" required />
-            </div>
-            <div id="mce-responses" className="clear foot">
-              <div className="response" id="mce-error-response" style={{ display: 'none' }}></div>
-              <div className="response" id="mce-success-response" style={{ display: 'none' }}></div>
-            </div>
-            <div aria-hidden="true" style={{ position: 'absolute', left: '-5000px' }}>
-              <input type="text" name="b_cb398a49b20c7906f23664856_b696a921fc" tabIndex={-1} value="" readOnly />
-            </div>
-            <div className="optionalParent">
-              <div className="clear foot">
-                <input type="submit" name="subscribe" id="mc-embedded-subscribe" className="button" value="Subscribe" />
-                <p style={{ margin: '0px auto' }}>
-                  <a href="http://eepurl.com/jex64s" title="Mailchimp - email marketing made easy and fun">
-                    <span style={{ display: 'inline-block', backgroundColor: 'transparent', borderRadius: '4px' }}>
-                      <img className="refferal_badge" src="https://digitalasset.intuit.com/render/content/dam/intuit/mc-fe/en_us/images/intuit-mc-rewards-text-dark.svg" alt="Intuit Mailchimp" style={{ width: '220px', height: '40px', display: 'flex', padding: '2px 0px', justifyContent: 'center', alignItems: 'center' }} />
-                    </span>
-                  </a>
-                </p>
-              </div>
-            </div>
-          </div>
+    <div style={{ background: '#f9fafb', borderRadius: '1rem', boxShadow: '0 2px 16px rgba(0,0,0,0.04)', padding: '2rem', margin: '2rem auto', maxWidth: 400 }}>
+      <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#22223b', marginBottom: '1rem' }}>Subscribe to Matthew's Newsletter</h2>
+      {submitted ? (
+        <div style={{ color: '#38b000', fontWeight: 600, fontSize: '1.1rem', textAlign: 'center' }}>Thank you for subscribing!</div>
+      ) : (
+        <form
+          action="https://us20.list-manage.com/contact-form?u=cb398a49b20c7906f23664856&form_id=4a9cb3ab8f2b184fda684edce5d8227c"
+          method="POST"
+          target="_blank"
+          onSubmit={handleSubmit}
+          style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}
+        >
+          <label htmlFor="newsletter-email" style={{ fontWeight: 500, color: '#22223b' }}>
+            Email Address
+            <span style={{ color: '#e63946', marginLeft: 4 }}>*</span>
+          </label>
+          <input
+            id="newsletter-email"
+            name="EMAIL"
+            type="email"
+            required
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+            style={{ borderRadius: '0.5rem', border: '1px solid #cbd5e1', padding: '0.75rem', fontSize: '1rem', width: '100%' }}
+            placeholder="you@email.com"
+          />
+          {error && <div style={{ color: '#e63946', fontSize: '0.95rem' }}>{error}</div>}
+          <button
+            type="submit"
+            style={{ background: '#22223b', color: '#fff', borderRadius: '0.5rem', padding: '0.75rem 1.5rem', fontWeight: 600, border: 'none', marginTop: '0.5rem', cursor: 'pointer', fontSize: '1rem', transition: 'background 0.2s' }}
+          >
+            Subscribe
+          </button>
         </form>
-      </div>
-      <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-            (function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='BIRTHDAY';ftypes[5]='birthday';fnames[6]='COMPANY';ftypes[6]='text';}(jQuery));var $mcj = jQuery.noConflict(true);`
-        }}
-      />
+      )}
     </div>
   );
 };

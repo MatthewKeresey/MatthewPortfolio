@@ -49,6 +49,11 @@ export default async function RootLayout({ children }: RootLayoutProps) {
       <head>
         <script
           dangerouslySetInnerHTML={{
+            __html: `!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/cb398a49b20c7906f23664856/8a2c0133fcf77013b79473353.js");`,
+          }}
+        />
+        <script
+          dangerouslySetInnerHTML={{
             __html: `
               (function() {
                 try {

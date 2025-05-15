@@ -47,6 +47,11 @@ export default async function RootLayout({ children }: RootLayoutProps) {
       )}
     >
       <head>
+        <link rel="icon" href="/images/avatar.jpg" type="image/jpeg" />
+        <link rel="apple-touch-icon" href="/images/avatar.jpg" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/images/avatar.jpg" />
+        <meta name="msapplication-TileImage" content="/images/avatar.jpg" />
+        <meta property="og:image" content="/images/avatar.jpg" />
         <script
           dangerouslySetInnerHTML={{
             __html: `!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/cb398a49b20c7906f23664856/8a2c0133fcf77013b79473353.js");`,

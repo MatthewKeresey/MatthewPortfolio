@@ -47,6 +47,18 @@ export const Footer = () => {
         </Flex>
       </Flex>
       <Flex height="80" show="s"></Flex>
+      <Flex
+        className={styles.mobile}
+        maxWidth="m"
+        paddingY="8"
+        paddingX="16"
+        horizontal="center"
+      >
+        <Text variant="body-default-s" onBackground="neutral-weak" style={{ textAlign: 'center' }}>
+          Disclaimer: I am not affiliated with or partnered with any of the companies shown in project images. 
+          These are simply tools and technologies I use and enjoy working with.
+        </Text>
+      </Flex>
     </Flex>
   );
 };

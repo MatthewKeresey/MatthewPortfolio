@@ -156,6 +156,15 @@ const about = {
         ],
         images: [],
       },
+      {
+        company: "Portland International Jetport",
+        timeframe: "2025 - Current",
+        role: "Network Technician",
+        achievements: [
+          <>Leading the upgrade and redesign of the airport's networking infrastructure to enhance reliability, security, and performance for critical airport operations.</>,
+        ],
+        images: [],
+      },
     ],
   },
   studies: {

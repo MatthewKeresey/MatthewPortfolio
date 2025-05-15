@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Heading, Flex, Text, Button, Avatar, RevealFx, Column, Badge, Row } from "@/once-ui/components";
+import { Heading, Flex, Text, Button, Avatar, RevealFx, Column, Badge, Row, SmartImage } from "@/once-ui/components";
 import { Projects } from "@/components/work/Projects";
 
 import { baseURL, routes } from "@/app/resources";
@@ -37,12 +37,35 @@ export default function Home() {
       <Column fillWidth paddingY="24" gap="m">
         <Column maxWidth="s">
           {home.featured && (
-          <RevealFx fillWidth horizontal="start" paddingTop="16" paddingBottom="32" paddingLeft="12">
-            <Badge background="brand-alpha-weak" paddingX="12" paddingY="4" onBackground="neutral-strong" textVariant="label-default-s" arrow={false}
-              href={home.featured.href}>
-              <Row paddingY="2">{home.featured.title}</Row>
-            </Badge>
-          </RevealFx>
+            <>
+              <RevealFx fillWidth horizontal="start" paddingTop="16" paddingBottom="32" paddingLeft="12">
+                <Badge background="brand-alpha-weak" paddingX="12" paddingY="4" onBackground="neutral-strong" textVariant="label-default-s" arrow={false}
+                  href={home.featured.href}>
+                  <Row paddingY="2">{home.featured.title}</Row>
+                </Badge>
+              </RevealFx>
+              {home.featured.media && (
+                <Column gap="m" marginBottom="32">
+                  <video 
+                    src={home.featured.media.video}
+                    controls
+                    style={{ width: '100%', borderRadius: '8px' }}
+                  />
+                  <Flex gap="m" wrap>
+                    {home.featured.media.images.map((image, index) => (
+                      <SmartImage
+                        key={index}
+                        src={image.src}
+                        alt={image.alt}
+                        aspectRatio={`${image.width} / ${image.height}`}
+                        radius="m"
+                        style={{ flex: 1, minWidth: '200px' }}
+                      />
+                    ))}
+                  </Flex>
+                </Column>
+              )}
+            </>
           )}
           <RevealFx translateY="4" fillWidth horizontal="start" paddingBottom="16">
             <Heading wrap="balance" variant="display-strong-l">
@@ -54,7 +77,7 @@ export default function Home() {
               {home.subline}
             </Text>
           </RevealFx>
-          <RevealFx paddingTop="12" delay={0.4} horizontal="start" paddingLeft="12">
+          <RevealFx translateY="12" delay={0.4} fillWidth horizontal="start">
             <Button
               id="about"
               data-border="rounded"

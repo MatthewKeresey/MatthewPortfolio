@@ -60,6 +60,23 @@ const home = {
     display: true,
     title: <>Recent project: <strong className="ml-4"></strong></>,
     href: "/work/building-once-ui-a-customizable-design-system",
+    media: {
+      video: "/videos/demo.mp4",
+      images: [
+        {
+          src: "/images/gallery/horizontal-1.jpg",
+          alt: "Project image",
+          width: 16,
+          height: 9,
+        },
+        {
+          src: "/images/gallery/vertical-3.jpg",
+          alt: "Project image",
+          width: 16,
+          height: 9,
+        }
+      ]
+    }
   },
   subline: (
     <>

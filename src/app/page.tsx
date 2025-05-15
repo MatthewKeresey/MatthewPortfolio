@@ -46,11 +46,6 @@ export default function Home() {
               </RevealFx>
               {home.featured.media && (
                 <Column gap="m" marginBottom="32">
-                  <video 
-                    src={home.featured.media.video}
-                    controls
-                    style={{ width: '100%', borderRadius: '8px' }}
-                  />
                   <Flex gap="m" wrap>
                     {home.featured.media.images.map((image, index) => (
                       <SmartImage

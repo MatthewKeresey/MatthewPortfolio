@@ -61,7 +61,7 @@ const home = {
     title: <>Recent project: <strong className="ml-4"></strong></>,
     href: "/work/building-once-ui-a-customizable-design-system",
     media: {
-      video: "/videos/demo.mp4",
+      video: "/images/gallery/video-01.mp4",
       images: [
         {
           src: "/images/gallery/horizontal-1.jpg",

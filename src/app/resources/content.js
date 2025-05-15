@@ -266,22 +266,22 @@ const gallery = {
     {
       src: "/images/gallery/vertical-1.jpg",
       alt: "image",
-      orientation: "vertical",
+      orientation: "horizontal",
     },
     {
       src: "/images/gallery/vertical-2.jpg",
       alt: "image",
-      orientation: "vertical",
+      orientation: "horizontal",
     },
     {
       src: "/images/gallery/vertical-3.jpg",
       alt: "image",
-      orientation: "vertical",
+      orientation: "horizontal",
     },
     {
       src: "/images/gallery/vertical-4.jpg",
       alt: "image",
-      orientation: "vertical",
+      orientation: "horizontal",
     },
   ],
 };

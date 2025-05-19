@@ -95,9 +95,6 @@ export default function Home() {
           </RevealFx>
         </Column>
       </Column>
-      <RevealFx translateY="16" delay={0.6}>
-        <Projects range={[1, 1]} />
-      </RevealFx>
       {routes["/blog"] && (
         <Flex fillWidth gap="24" mobileDirection="column">
           <Flex flex={1} paddingLeft="l" paddingTop="24">
@@ -110,7 +107,7 @@ export default function Home() {
           </Flex>
         </Flex>
       )}
-      <Projects range={[2]} excludeSlug={home.featured.href.replace("/work/", "")} />
+      <Projects excludeSlug={home.featured.href.replace("/work/", "")} />
       {newsletter.display && <Mailchimp />}
     </Column>
   );

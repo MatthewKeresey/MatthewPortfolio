@@ -110,7 +110,7 @@ export default function Home() {
           </Flex>
         </Flex>
       )}
-      <Projects range={[2]} />
+      <Projects range={[2]} excludeSlug={home.featured.href.replace("/work/", "")} />
       {newsletter.display && <Mailchimp />}
     </Column>
   );
